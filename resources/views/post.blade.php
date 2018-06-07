@@ -1,34 +1,40 @@
 @extends('layouts.blog-post')
 
+@section('title')
+
+{{$post->title}}
+
+@endsection
+
 @section('content')
-    <!-- Title -->
-    <h1>{{$post->title}}</h1>
+<!-- Title -->
+<h1>{{$post->title}}</h1>
 
-    <!-- Author -->
-    <p class="lead">
-        by <a href="#">{{$post->user->name}}</a>
-    </p>
+<!-- Author -->
+<p class="lead">
+    by <a href="#">{{$post->user->name}}</a>
+</p>
 
-    <hr>
+<hr>
 
-    <!-- Date/Time -->
-    <p><span class="glyphicon glyphicon-time"></span> Posted {{$post->created_at->diffForHumans()}}</p>
+<!-- Date/Time -->
+<p><span class="glyphicon glyphicon-time"></span> Posted {{$post->created_at->diffForHumans()}}</p>
 
-    <hr>
+<hr>
 
-    <!-- Preview Image -->
-    <img class="img-responsive" src="{{$post->photo ? $post->photo->file : null}}" alt="">
+<!-- Preview Image -->
+<img class="img-responsive" src="{{$post->photo ? $post->photo->file : null}}" alt="">
 
-    <hr>
+<hr>
 
-    <!-- Post Content -->
-    <p>{!! $post->body !!}</p>
-    <hr>
+<!-- Post Content -->
+<p>{!! $post->body !!}</p>
+<hr>
 
-    <!-- Blog Comments -->
+<!-- Blog Comments -->
 
-    <div id="disqus_thread"></div>
-    <script>
+<div id="disqus_thread"></div>
+<script>
 
         /**
          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
