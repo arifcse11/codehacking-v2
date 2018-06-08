@@ -1,23 +1,45 @@
-@extends('layouts.app')
+@extends('layouts.blog-home')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+        
+        
+        @if($posts)
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            @foreach($posts as $post)
 
-                    You are logged in!
-                </div>
+
+        <!-- First Blog Post -->
+        <h2>
+            <a href="post/{{$post->slug}}">{{$post->title}}</a>
+        </h2>
+        <p class="lead">
+            by <a href="index.php">{{$post->user->name}}</a>
+        </p>
+        <p><span class="glyphicon glyphicon-time"></span> Posted {{$post->created_at->diffForHumans()}}</p>
+        <hr>
+        <img class="img-responsive" src="{{$post->photo ? $post->photo->file : ''}}" alt="">
+        <hr>
+        <p>{!! str_limit($post->body,30) !!}</p>
+        <a class="btn btn-primary" href="post/{{$post->slug}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+        <hr>
+
+        @endforeach
+
+            @endif
+
+
+
+        <!-- Pager -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                {{$posts->render()}}
             </div>
         </div>
+
+
     </div>
-</div>
 @endsection
