@@ -136,11 +136,5 @@ class AdminPostsController extends Controller
         return redirect('admin/posts');
     }
 
-    public function post($slug){
 
-    	$post = Post::where('slug', $slug)->first();
-
-    	return view('post',compact('post'));
-
-    }
 }

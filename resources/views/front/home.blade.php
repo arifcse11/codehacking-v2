@@ -42,4 +42,5 @@
 
 
     </div>
+    @include('includes.front_sidebar')
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -28,6 +29,16 @@ class HomeController extends Controller
     public function index()
     {
     	$posts = Post::paginate(2);
-        return view('front.home', compact('posts'));
+    	$categories = Category::all();
+        return view('front.home', compact('posts','categories'));
     }
+
+	public function post($slug){
+
+		$post = Post::where('slug', $slug)->first();
+		$categories = Category::all();
+
+		return view('post',compact('post','categories'));
+
+	}
 }

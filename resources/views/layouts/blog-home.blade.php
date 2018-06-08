@@ -39,7 +39,7 @@
            @yield('content')
 
             <!-- Blog Sidebar Widgets Column -->
-        @include('includes.front_sidebar')
+
 
         </div>
         <!-- /.row -->

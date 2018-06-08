@@ -18,29 +18,19 @@
     <div class="well">
         <h4>Blog Categories</h4>
         <div class="row">
-            <div class="col-lg-6">
-                <ul class="list-unstyled">
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
-                </ul>
-            </div>
+
             <!-- /.col-lg-6 -->
             <div class="col-lg-6">
                 <ul class="list-unstyled">
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
-                    <li><a href="#">Category Name</a>
-                    </li>
+                    @if($categories)
+                        @foreach($categories as $category)
+                            <li><a href="#">{{$category->name}}</a>
+                            </li>
+
+                        @endforeach
+
+                    @endif
+
                 </ul>
             </div>
             <!-- /.col-lg-6 -->
@@ -51,7 +41,8 @@
     <!-- Side Widget Well -->
     <div class="well">
         <h4>Side Widget Well</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus
+            laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
     </div>
 
 </div>
